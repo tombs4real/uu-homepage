@@ -1,0 +1,234 @@
+/* ===========================
+	Fonts
+============================ */
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800,900|Open+Sans:300,400,600,700|Quantico:700|Noto+Serif+JP:300,400,500");
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+
+/* ===========================
+	Mixins & Variables
+============================ */
+@import "modules/variables";
+@import "modules/mixins";
+
+/* ===========================
+	Partials
+============================ */
+@import "partials/normalize";
+
+
+/* ===========================
+	Global
+============================ */
+body {
+  font-family: $ff-open;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: $gray;
+}
+
+.img-fluid {
+  width: 100%;
+}
+
+
+/* ===========================
+	Header
+============================ */
+header {
+  display: grid;
+  grid-template-columns: 180px 1fr 50px 50px;
+  grid-template-rows: 100%;
+  background-color: $uu-ebony;
+}
+
+header .header-logo {
+  align-self: center;
+  max-width: 150px;
+  min-width: 150px;
+  padding: 15px;
+}
+
+header .header-nav {
+  align-self: center;
+  text-align: right;
+  height:100%;
+}
+
+.header-nav nav {
+  text-align: right;
+  height: 100%;
+}
+
+.header-nav nav a {
+  box-sizing:border-box;
+  font-family: $ff-mont;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $white;
+  display: inline-block;
+  padding: 24px 20px;
+  opacity: .85;
+  @include transition(all, 0.3s)
+}
+
+.header-nav nav a:hover {
+  opacity: 1;
+  background: $uu-red;
+}
+
+header .header-search {
+  align-self: center;
+  text-align: center;
+}
+
+header .header-menu {
+  align-self: center;
+  text-align: center;
+}
+
+// search button
+.uu-search-btn {
+  padding: 7px;
+  width: 35px;
+  height: 35px;
+  font-size: 18px;
+  color:#fff;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  opacity: .45;
+  @include transition(opacity, 0.3s)
+}
+
+.uu-search-btn:focus, .uu-search-btn:hover {
+  outline: none;
+  border: none;
+}
+
+.uu-search-btn:hover {
+  opacity: 1;
+}
+
+// hamburger button
+
+$button-width: 35px;                    // The width of the button area
+$button-height: 35px;                   // The height of the button area
+$bar-thickness: 2px;                    // The thickness of the button bars
+$button-pad: 7px;                      // The left/right padding between button area and bars.
+$button-bar-space: 7px;                // The spacing between button bars
+$button-transistion-duration: 0.3s;     // The transition duration
+
+.uu-hamburger, .mobile-close-nav {
+  position: relative;
+  top: 4px;
+  padding: 0;
+  width: $button-width;
+  height: $button-height;
+  font-size: 0;
+	color:#fff;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  opacity: .45;
+  @include transition(opacity, 0.3s)
+}
+
+.uu-hamburger:focus,
+.uu-hamburger:hover,
+.mobile-close-nav:focus,
+.mobile-close-nav:hover {
+  outline: none;
+}
+
+.uu-hamburger:hover,
+.mobile-close-nav:hover {
+  opacity: 1;
+}
+
+.uu-hamburger span,
+.mobile-close-nav span {
+  display: block;
+  position: absolute;
+  left: $button-pad;
+  right: $button-pad;
+  height: $bar-thickness;
+  border-radius: 2px;
+  background: $white;
+}
+
+.uu-hamburger span::before,
+.uu-hamburger span::after,
+.mobile-close-nav span::before,
+.mobile-close-nav span::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  width: 100%;
+  height: $bar-thickness;
+  background-color: $white;
+  content: "";
+}
+
+.uu-hamburger span::before,
+.mobile-close-nav span::before {
+ 	top: $button-bar-space;
+}
+
+.uu-hamburger span::after,
+.mobile-close-nav span::after {
+  bottom: $button-bar-space;
+}
+
+/* transition */
+
+.uu-hamburger--x span::before,
+.uu-hamburger--x span::after {
+  transition-duration: $button-transistion-duration, $button-transistion-duration;
+  transition-delay: $button-transistion-duration, 0s;
+}
+
+.uu-hamburger--x span::before,
+.mobile-close-nav span::before
+ {
+  transition-property: top, transform;
+}
+
+.uu-hamburger--x span::after,
+.mobile-close-nav span:after {
+  transition-property: bottom, transform;
+}
+
+/* active state, i.e. menu open */
+
+.uu-hamburger--x.is-active span,
+.mobile-close-nav span {
+  background: none;
+}
+
+.uu-hamburger--x.is-active span::before,
+.mobile-close-nav span::before {
+  top: 0;
+  transform: rotate(45deg);
+  z-index: 101;
+}
+
+.uu-hamburger--x.is-active span::after,
+.mobile-close-nav span::after {
+  bottom: 0;
+  transform: rotate(-45deg);
+  box-shadow:1px 1px 1px 1px $uu-ebony;
+  z-index: 102;
+}
+
+.uu-hamburger--x.is-active span::before,
+.uu-hamburger--x.is-active span::after {
+  transition-delay: 0s, $button-transistion-duration   ;
+}
