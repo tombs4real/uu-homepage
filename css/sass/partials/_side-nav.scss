@@ -1,0 +1,196 @@
+/* ===========================
+	Side Nav
+============================ */
+
+// mobile close nav
+
+.mobile-close-nav {
+  display: none;
+  top: 22px;
+  left: 20px;
+  z-index: 101;
+  background: $uu-ebony;
+}
+
+
+// push menu
+
+.uu-side-nav {
+  position: fixed;
+  background: $uu-black;
+  width: 350px;
+  height: 100%;
+  top: 0;
+  right: -350px;
+  bottom: 0;
+  z-index: 100;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: inset 10px 0px 15px -10px rgba(0,0,0,0.75);
+  @include transition(all, 0.3s)
+}
+.uu-side-nav.uu-side-nav-open {
+  right: 0;
+}
+
+.uu-side-nav .uu-site-logo {
+  width: 250px !important;
+  display: block;
+  margin: 1.5em auto 0.5em;
+}
+
+.menu-block {
+  padding-left: 50px;
+  margin: 50px 0;
+}
+
+.menu-block a {
+  display: block;
+  color: $white;
+  padding: 10px 0px;
+  @include transition(all, 0.3s)
+}
+
+.menu-block ul li:hover > h3 a  {
+  background-color: $uu-ebony;
+  padding-left: 10px;
+}
+
+
+h3.uu-side-nav-heading {
+  color: $white;
+  font-family: $ff-mont;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.menu-block hr {
+  height: 4px;
+  width: 50px;
+  background: $uu-red;
+  margin: 5px 0px 15px 0px;
+}
+
+.menu-block ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.menu-block h3 {
+  font-family: $ff-open;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 14px;
+  margin-bottom: 0px;
+}
+
+.menu-block ul li {
+  position: relative;
+  border-bottom: 1px solid #4B4B4B;
+}
+
+// push menu sub menu
+.has-sub i {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 50px;
+  height: 100%;
+  background: $uu-black;
+  color: $white;
+  font-size: 20px;
+  padding: 9px 0px 0px 18px;
+  border-left: 1px solid #4B4B4B;
+  cursor: pointer;
+  @include transition(all, 0.3s)
+}
+.has-sub i:hover {
+  background: $uu-ebony;
+  padding-top: 7px;
+}
+
+.sub-menu {
+  display: none;
+  background-color: #292222;
+}
+.sub-menu h3 {
+  font-size: 12px!important;
+  line-height: 14px;
+}
+.sub-menu li {
+  border-bottom: 1px solid #3B3B3B;
+}
+.sub-menu li:first-child {
+  border-top: 1px solid #3B3B3B;
+}
+.sub-menu li:last-child {
+  border-bottom: none;
+}
+.sub-menu a {
+  padding-left: 15px;
+}
+.sub-menu li:hover > h3 a  {
+  padding-left: 25px!important;
+}
+
+
+
+
+
+// header media queries
+// extra small devices (portrait phones, less than 480px)
+@include xs {
+
+  // push menu
+  .uu-side-nav.uu-side-nav-open {
+    width: 100%;
+  }
+  .page-container.uu-body-pushbody-left {
+    left: -100%!important;
+  }
+  // mobile close nav
+  .mobile-close-nav {
+    display: block;
+  }
+
+  .uu-header {
+    text-align: center;
+  }
+
+  .uu-search-btn {
+    left: 0px;
+    right: auto;
+  }
+
+}
+
+// small devices (landscape phones, 480px and up)
+@include sm {
+
+}
+
+// medium devices (tablets, 768px and up)
+@include md {
+
+  .uu-site-title {
+    font-size: 18px;
+  }
+  .uu-site-title span {
+    display: none;
+  }
+
+  .uu-header.shrink h1.uu-site-title a {
+    position: relative;
+    top: 2px;
+  }
+
+}
+
+// large devices (desktops, 992px and up)
+@include lg {
+
+}

@@ -14,7 +14,10 @@
 /* ===========================
 	Partials
 ============================ */
-@import "partials/normalize";
+@import "partials/reset";
+@import "partials/header";
+@import "partials/side-nav";
+@import "partials/marquee";
 
 
 /* ===========================
@@ -32,203 +35,75 @@ body {
   width: 100%;
 }
 
-
-/* ===========================
-	Header
-============================ */
-header {
-  display: grid;
-  grid-template-columns: 180px 1fr 50px 50px;
-  grid-template-rows: 100%;
-  background-color: $uu-ebony;
+.uu-body.uu-body-pushbody-left {
+  overflow: hidden;
 }
 
-header .header-logo {
-  align-self: center;
-  max-width: 150px;
-  min-width: 150px;
-  padding: 15px;
-}
-
-header .header-nav {
-  align-self: center;
-  text-align: right;
-  height:100%;
-}
-
-.header-nav nav {
-  text-align: right;
-  height: 100%;
-}
-
-.header-nav nav a {
-  box-sizing:border-box;
-  font-family: $ff-mont;
-  font-size: 16px;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: $white;
-  display: inline-block;
-  padding: 24px 20px;
-  opacity: .85;
+.page-container {
+  position: relative;
+  left: 0;
   @include transition(all, 0.3s)
 }
 
-.header-nav nav a:hover {
-  opacity: 1;
-  background: $uu-red;
+.page-container.uu-body-pushbody-left {
+  left: -350px;
 }
 
-header .header-search {
-  align-self: center;
-  text-align: center;
+// typograohy
+
+h1, h2, h3, h4, h5, h6 {
+  color: $uu-ebony;
+  font-family: $ff-mont;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-transform: uppercase;
 }
 
-header .header-menu {
-  align-self: center;
-  text-align: center;
+
+h1 {
+  font-size: 40px;
 }
 
-// search button
-.uu-search-btn {
-  padding: 7px;
-  width: 35px;
-  height: 35px;
+h2 {
+  font-size: 30px
+}
+
+h3 {
+  font-size: 24px;
+}
+
+h4 {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+h5 {
   font-size: 18px;
-  color:#fff;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-  border: none;
-  cursor: pointer;
-  opacity: .45;
-  @include transition(opacity, 0.3s)
+  font-weight: 400;
 }
 
-.uu-search-btn:focus, .uu-search-btn:hover {
-  outline: none;
-  border: none;
+h6 {
+  font-size: 16px;
+  font-weight: 400;
 }
 
-.uu-search-btn:hover {
-  opacity: 1;
+
+hr {
+  margin: 30px 0px;
 }
 
-// hamburger button
 
-$button-width: 35px;                    // The width of the button area
-$button-height: 35px;                   // The height of the button area
-$bar-thickness: 2px;                    // The thickness of the button bars
-$button-pad: 7px;                      // The left/right padding between button area and bars.
-$button-bar-space: 7px;                // The spacing between button bars
-$button-transistion-duration: 0.3s;     // The transition duration
-
-.uu-hamburger, .mobile-close-nav {
-  position: relative;
-  top: 4px;
-  padding: 0;
-  width: $button-width;
-  height: $button-height;
-  font-size: 0;
-	color:#fff;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-  border: none;
-  cursor: pointer;
-  opacity: .45;
-  @include transition(opacity, 0.3s)
+p {
+  margin-bottom: 30px;
 }
 
-.uu-hamburger:focus,
-.uu-hamburger:hover,
-.mobile-close-nav:focus,
-.mobile-close-nav:hover {
-  outline: none;
+p.lead {
+  font-size: 18px;
+  font-weight: 400;
+  color: $uu-ebony;
 }
 
-.uu-hamburger:hover,
-.mobile-close-nav:hover {
-  opacity: 1;
-}
-
-.uu-hamburger span,
-.mobile-close-nav span {
-  display: block;
-  position: absolute;
-  left: $button-pad;
-  right: $button-pad;
-  height: $bar-thickness;
-  border-radius: 2px;
-  background: $white;
-}
-
-.uu-hamburger span::before,
-.uu-hamburger span::after,
-.mobile-close-nav span::before,
-.mobile-close-nav span::after {
-  position: absolute;
-  display: block;
-  left: 0;
-  width: 100%;
-  height: $bar-thickness;
-  background-color: $white;
-  content: "";
-}
-
-.uu-hamburger span::before,
-.mobile-close-nav span::before {
- 	top: $button-bar-space;
-}
-
-.uu-hamburger span::after,
-.mobile-close-nav span::after {
-  bottom: $button-bar-space;
-}
-
-/* transition */
-
-.uu-hamburger--x span::before,
-.uu-hamburger--x span::after {
-  transition-duration: $button-transistion-duration, $button-transistion-duration;
-  transition-delay: $button-transistion-duration, 0s;
-}
-
-.uu-hamburger--x span::before,
-.mobile-close-nav span::before
- {
-  transition-property: top, transform;
-}
-
-.uu-hamburger--x span::after,
-.mobile-close-nav span:after {
-  transition-property: bottom, transform;
-}
-
-/* active state, i.e. menu open */
-
-.uu-hamburger--x.is-active span,
-.mobile-close-nav span {
-  background: none;
-}
-
-.uu-hamburger--x.is-active span::before,
-.mobile-close-nav span::before {
-  top: 0;
-  transform: rotate(45deg);
-  z-index: 101;
-}
-
-.uu-hamburger--x.is-active span::after,
-.mobile-close-nav span::after {
-  bottom: 0;
-  transform: rotate(-45deg);
-  box-shadow:1px 1px 1px 1px $uu-ebony;
-  z-index: 102;
-}
-
-.uu-hamburger--x.is-active span::before,
-.uu-hamburger--x.is-active span::after {
-  transition-delay: 0s, $button-transistion-duration   ;
+main {
+  min-height: 1200px;
+  padding-top: 64.23px;
 }

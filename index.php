@@ -10,44 +10,37 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- end css -->
   </head>
-  <body>
+  <body class="uu-body">
+
+    <!-- side nav -->
+    <?php include 'includes/side-nav.php'; ?>
+    <!-- end side nav -->
 
     <!-- page -->
     <div class="page-container">
 
       <!-- header -->
-      <header>
-        <div class="header-logo">
-          <a href="#">
-            <img src="img/universityofutah.svg" alt="University of Utah" class="img-fluid">
-          </a>
-        </div>
-        <div class="header-nav">
-          <nav>
-            <a href="#">About the U</a>
-            <a href="#">Admissions</a>
-            <a href="#">Academics</a>
-            <a href="#">The Arts</a>
-            <a href="#">Health Care</a>
-            <a href="#">Athletics</a>
-            <a href="#">Give</a>
-          </nav>
-        </div>
-        <div class="header-search">
-          <button id="uu-search-trigger" class="uu-search-btn" data-toggle="modal" data-target="#uu-search-modal">
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </button>
-        </div>
-        <div class="header-menu">
-          <button id="uu-pushmenu-trigger" class="uu-hamburger uu-hamburger--x">
-            <span>MENU</span>
-          </button>
-        </div>
-      </header>
+      <?php include 'includes/header.php'; ?>
       <!-- end header -->
 
       <!-- main content -->
       <main>
+
+        <!-- marquee -->
+        <section class="uu-marquee-container">
+          <div class="owl-slider uu-marquee">
+            <!-- slide -->
+            <div class="item" style="background-image:url('img/slides/slide1.jpg'); background-position: top center;">
+              <div class="slide-content">
+                <h1>Slide One Title</h1>
+                <h2 class="subhead">This is slide one's subhead</h2>
+                <a href="#" class="uu-btn">Learn More</a>
+              </div>
+            </div>
+            <!-- end slide -->
+          </div>
+        </section>
+        <!-- end marquee -->
 
         <!-- article -->
         <article></article>
@@ -57,13 +50,14 @@
       <!-- end main content -->
 
       <!-- footer -->
-      <footer></footer>
+      <?php include 'includes/footer.php'; ?>
       <!-- end footer -->
 
     </div>
     <!-- end page -->
 
     <!-- scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/custom.js"></script>
     <!-- end scripts -->
   </body>

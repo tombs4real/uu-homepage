@@ -1,4 +1,4 @@
-/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+/*! Based off normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -67,6 +67,7 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: none;
 }
 
 /**
@@ -338,4 +339,10 @@ template {
 
 [hidden] {
   display: none;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px;
+  padding: 0px;
 }
